@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="fiek.ds.android.fieknote">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="com.pushbullet.android.permission.READ_MESSAGING_EXTENSION_DATA" />
+    <uses-permission android:name="com.pushbullet.android.permission.SEND_MESSAGES" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <application
+        android:name="fiek.ds.android.fieknote.FiekNote"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/FiekNotesTheme.ApiSpec.Branded"
+        tools:replace="android:theme">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".ListActivity" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"
+            tools:replace="android:value"/>
+
+        <!-- List and Detail -->
+        <activity
+            android:name="fiek.ds.android.fieknote.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="com.google.android.gm.action.AUTO_SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="hashtag" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Gallery -->
+        <activity
+            android:name="fiek.ds.android.fieknote.GalleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:supportsRtl="true"
+            android:theme="@style/FiekNotesFullscreenTheme.ApiSpec" />
+
+        <activity
+            android:name="fiek.ds.android.fieknote.CategoryActivity"
+            android:label="@string/title_activity_category"
+            android:parentActivityName="fiek.ds.android.fieknote.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fiek.ds.android.fieknote.MainActivity" />
+        </activity>
+
+        <!-- Settings -->
+        <activity
+            android:name="fiek.ds.android.fieknote.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName="fiek.ds.android.fieknote.MainActivity"
+            android:theme="@style/PreferencesTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fiek.ds.android.fieknote.MainActivity" />
+        </activity>
+
+        <!-- Password -->
+        <activity
+            android:name="fiek.ds.android.fieknote.PasswordActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/FiekNotesTheme.ApiSpec.Dialog" />
+
+        <!-- abouut activity
+        <activity
+            android:name="fiek.ds.android.fieknote.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:launchMode="singleTop" />
+          -->
+        <!-- Intro activity
+        <activity
+            android:name="fiek.ds.android.fieknote.intro.IntroActivity"
+            android:label="@string/app_name"
+            android:theme="@style/PreferencesTheme"/>
+          -->
+        <!-- Snooze reminder -->
+        <activity
+            android:name="fiek.ds.android.fieknote.SnoozeActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:theme="@style/FiekNotesTheme.NoDisplay" />
+
+        <!-- Home launcher shortcut -->
+        <activity
+            android:name="fiek.ds.android.fieknote.ShortcutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Stats
+        <activity
+            android:name="fiek.ds.android.fieknote.StatsActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+          -->
+
+        <!-- ACRA -->
+        <activity
+            android:name="org.acra.CrashReportDialog"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+
+        <!-- Alarm broadcast receiver -->
+        <receiver android:name="fiek.ds.android.fieknote.receiver.AlarmReceiver" />
+
+        <!-- Reboot broadcast receiver -->
+        <receiver
+            android:name="fiek.ds.android.fieknote.receiver.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="BootCompleteReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Restore on reboot alarm service -->
+        <service android:name="fiek.ds.android.fieknote.async.AlarmRestoreOnRebootService"/>
+
+        <!-- Notification listener service -->
+        <service android:name="fiek.ds.android.fieknote.services.NotificationListener"
+                 android:label="@string/app_name"
+                 android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
+        <!-- Data export and import service -->
+        <service android:name="fiek.ds.android.fieknote.async.DataBackupIntentService"/>
+
+        <!-- Widget configuration Activity -->
+        <activity
+            android:name="fiek.ds.android.fieknote.widget.WidgetConfigurationActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!-- Widget Simple -->
+        <receiver
+            android:name="fiek.ds.android.fieknote.widget.SimpleWidgetProvider"
+            android:description="@string/widget_simple_description"
+            android:icon="@drawable/logo"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_simple" />
+        </receiver>
+        <!-- Widget List -->
+        <receiver
+            android:name="fiek.ds.android.fieknote.widget.ListWidgetProvider"
+            android:description="@string/widget_list_description"
+            android:icon="@drawable/logo"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_list" />
+        </receiver>
+
+        <service
+            android:name="fiek.ds.android.fieknote.widget.ListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- DashClock plugin service -->
+        <service
+            android:name="fiek.ds.android.fieknote.extensions.ONDashClockExtension"
+            android:icon="@drawable/ic_stat_literal_icon"
+            android:label="@string/app_name"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/dashclock_description" />
+            <!-- A settings activity is optional -->
+            <!-- <meta-data -->
+            <!-- android:name="settingsActivity" -->
+            <!-- android:value=".ExampleSettingsActivity" /> -->
+        </service>
+
+        <service
+            android:name="fiek.ds.android.fieknote.extensions.PushBulletExtension"
+            android:permission="com.pushbullet.android.permission.READ_MESSAGING_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.pushbullet.android.extension.MessagingExtension" />
+            </intent-filter>
+            <meta-data
+                android:name="protocolVersion"
+                android:value="1" />
+        </service>
+
+    </application>
+
+</manifest>

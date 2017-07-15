@@ -1,0 +1,17 @@
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="FiekNotesTheme.ApiSpec" >
+        <item name="android:statusBarColor">@color/statusbar_overlay</item>
+        <item name="android:windowTranslucentNavigation">@bool/transparent_nav</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+
+    <style name="FiekNotesFullscreenTheme.ApiSpec">
+        <item name="android:statusBarColor">@color/statusbar_overlay</item>
+        <item name="android:windowTranslucentNavigation">@bool/transparent_nav</item>
+    </style>
+
+
+</resources>

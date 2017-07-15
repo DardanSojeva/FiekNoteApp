@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="navigation_list">
+        <item>Shënimet</item>
+        <item>Arkiva</item>
+        <item>Përkujtuesit</item>
+        <item>Shporta </item>
+        <item>Të pakategorizuara</item>
+    </string-array>
+    <string-array name="sortable_columns_human_readable">
+        <item>Titullit</item>
+        <item>Datës së krijimit</item>
+        <item>Datës së modifikimit</item>
+        <item>Datës së përkujtimit</item>
+    </string-array>
+    <string-array name="checked_items_behavior">
+        <item>Mbaj pozicionin</item>
+        <item>Zhvendose në fund të listës</item>
+        <item>Zhvendose në fund të anëtarëve të pazgjedhur</item>
+    </string-array>
+    <string-array name="colors_app">
+        <item>Anuluar</item>
+        <item>Vetëm shiriti</item>
+        <item>Vetëm lista e shënimeve</item>
+        <item>Komplet</item>
+    </string-array>
+    <string-array name="colors_widget">
+        <item>Anuluar</item>
+        <item>Vetëm shiriti</item>
+        <item>Lista e shënimeve</item>
+    </string-array>
+    <string-array name="text_size">
+        <item>Shumë të vogla </item>
+        <item>Të vogla</item>
+        <item>Normale</item>
+        <item>Të mëdha</item>
+        <item>Shumë të mëdha</item>
+    </string-array>
+    <string-array name="attachments_actions">
+        <item>Shpërndaj</item>
+        <item>Fshije</item>
+        <item>Fshij të gjitha</item>
+        <item>Ndrysho</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:fitsSystemWindows="true">
+
+    <SwitchPreference
+            android:key="acra.enable"
+            android:title="@string/settings_error_reporting"
+            android:summaryOn="@string/settings_error_reporting_summary_on"
+            android:summaryOff="@string/settings_error_reporting_summary_off"
+            android:defaultValue="true"/>
+
+    <SwitchPreference
+            android:key="settings_send_analytics"
+            android:title="@string/settings_send_analytics"
+            android:summary="@string/settings_send_analytics_summary"
+            android:defaultValue="true"/>
+
+</PreferenceScreen>

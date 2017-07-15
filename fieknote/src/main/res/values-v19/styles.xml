@@ -1,0 +1,16 @@
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="FiekNotesTheme.ApiSpec" >
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">@bool/transparent_nav</item>
+    </style>
+
+
+    <style name="FiekNotesFullscreenTheme.ApiSpec">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">@bool/transparent_nav</item>
+    </style>
+
+
+</resources>
